@@ -24,8 +24,11 @@ First, create a new `plist` file within `~/Library/LaunchAgents` directory:
         <key>RunAtLoad</key>
         <true/>
 
-        <key>StartInterval</key>
-        <integer>60</integer>
+        <key>StartCalendarInterval</key>
+        <dict>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
 
         <key>StandardErrorPath</key>
         <string>[WORLD_CLASSICAL_BOT_PATH]/stderr.log</string>
