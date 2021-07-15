@@ -179,12 +179,22 @@ async function start() {
     const todayAt0600 = todayAt0000 + 6 * ONE_HOUR;
     const todayAt1800 = todayAt0000 + 18 * ONE_HOUR;
 
+    let HAS_RUN = false;
+
     if (todayAt0600 > lastCurrentArenasDate) {
       await createAllClassicalArenaTournamentsAt(todayAt0600);
+
+      HAS_RUN = true;
     }
 
     if (todayAt1800 > lastCurrentArenasDate) {
-      await createAllClassicalArenaTournamentsAt(todayAt0600);
+      await createAllClassicalArenaTournamentsAt(todayAt1800);
+
+      HAS_RUN = true;
+    }
+
+    if (!HAS_RUN) {
+      console.log(now(), `Classical Arenas are already up to date.`);
     }
   } catch (err) {
     console.log(now(), `[start()] Error: ${err}`);
