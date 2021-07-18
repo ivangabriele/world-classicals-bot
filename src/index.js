@@ -1,8 +1,6 @@
 const axios = require("axios");
 const dotenv = require("dotenv");
-const fs = require("fs");
 const moment = require("moment");
-const os = require("os");
 
 dotenv.config();
 
